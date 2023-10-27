@@ -5,10 +5,16 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Taskmaster's Birthday?</title>
+		<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ad0808">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="theme-color" content="#ffffff">
 	</head>
 	<body>
 		<h1>Is today the Taskmaster's birthday?</h1>
@@ -52,7 +58,6 @@
 		transform: translateX(-50%);
 	}
 
-	/* cycle through each letter with the color pattern turq, yell, pink, blue */
 	h1 span:nth-child(4n+1) {
 		color: #6bbbb0; /* turq */
 	}
