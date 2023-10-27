@@ -52,6 +52,22 @@
 		transform: translateX(-50%);
 	}
 
+	/* cycle through each letter with the color pattern turq, yell, pink, blue */
+	h1 span:nth-child(4n+1) {
+		color: #6bbbb0; /* turq */
+	}
+	h1 span:nth-child(4n+2) {
+		color: #d7d859;	/* yell */
+	}
+	h1 span:nth-child(4n+3) {
+		color: #bc7192;	/* pink */
+	}
+	h1 span:nth-child(4n+4) {
+		color: #498fee;	/* blue */
+	}
+
+
+
 	blink {
 		-webkit-animation: 2s linear infinite condemed_blink_effect;
 		animation: 2s linear infinite condemed_blink_effect;
