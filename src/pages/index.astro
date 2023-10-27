@@ -19,7 +19,7 @@
 	<body>
 		<h1>Is today the Taskmaster's birthday?</h1>
 		<h2>
-			<blink>NO</blink>
+			<is-birthday/>
 		</h2>
 
 		<img src="./images/unlit-candles.webp" alt="a row of unlit candles"/>
@@ -29,6 +29,25 @@
 <script>
 	const h1 = document.querySelector('h1');
 	h1.innerHTML = h1.textContent.replace(/\S/g, "<span>$&</span>");
+
+	class isBirthday extends HTMLElement {
+		constructor() {
+			super();
+			this.attachShadow({mode: 'open'});
+		}
+		connectedCallback() {
+			/* if current date is may 14th set innerHTML to "YES"*/
+			const today = new Date();
+			if (today.getMonth() == 4 && today.getDate() == 14) {
+				this.shadowRoot.innerHTML = 'YES';
+			} else {
+				this.shadowRoot.innerHTML = 'NO';
+			}
+
+		}
+	}
+
+	customElements.define('is-birthday', isBirthday);
 </script>
 
 <style is:global>
@@ -73,7 +92,8 @@
 
 
 
-	blink {
+	blink,
+	is-birthday{
 		-webkit-animation: 2s linear infinite condemed_blink_effect;
 		animation: 2s linear infinite condemed_blink_effect;
 	}
