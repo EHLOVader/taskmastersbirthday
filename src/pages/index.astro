@@ -22,7 +22,7 @@
 			<is-birthday/>
 		</h2>
 
-		<img src="./images/unlit-candles.webp" alt="a row of unlit candles"/>
+		<birthday-candles/>
 	</body>
 </html>
 
@@ -39,7 +39,7 @@
 			/* if current date is may 14th set innerHTML to "YES"*/
 			const today = new Date();
 			if (today.getMonth() == 4 && today.getDate() == 14) {
-				this.shadowRoot.innerHTML = 'YES';
+				this.shadowRoot.innerHTML = 'YES!';
 			} else {
 				this.shadowRoot.innerHTML = 'NO';
 			}
@@ -48,6 +48,27 @@
 	}
 
 	customElements.define('is-birthday', isBirthday);
+
+	class birthdayCandles extends HTMLElement {
+		constructor() {
+			super();
+			this.attachShadow({mode: 'open'});
+		}
+		connectedCallback() {
+			const today = new Date();
+			if (today.getMonth() == 4 && today.getDate() == 14) {
+				this.shadowRoot.innerHTML = `
+					<img src="./images/lit-candles.png" alt="a row of lit candles"/>
+				`;
+			} else {
+				this.shadowRoot.innerHTML = `
+					<img src="./images/unlit-candles.webp" alt="a row of unlit candles"/>
+				`;
+			}
+		}
+	}
+
+	customElements.define('birthday-candles', birthdayCandles);
 </script>
 
 <style is:global>
